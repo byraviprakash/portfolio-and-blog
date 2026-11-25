@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageIntro from '../../../components/PageIntro.astro';
+import ArticleList from '../../../components/ArticleList.astro';
+import { getTags, type Group } from '../../../lib/posts';
+
+// One page per tag, generated automatically from the articles' "tags" field.
+export async function getStaticPaths() {
+  const tags = await getTags();
+  return tags.map((group) => ({ params: { tag: group.slug }, props: { group } }));
+}
+const { group } = Astro.props as { group: Group };
+---
+<BaseLayout title={`#${group.name}`} description={`Articles tagged ${group.name}.`}>
+  <PageIntro eyebrow="Tag" title={`#${group.name}`} description={`${group.posts.length} article${group.posts.length === 1 ? '' : 's'} tagged ${group.name}.`}>
+    <a class="back-link" href="/blog/">← All articles</a>
+  </PageIntro>
+  <ArticleList posts={group.posts} />
+</BaseLayout>

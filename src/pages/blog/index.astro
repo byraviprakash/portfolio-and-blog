@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CategoryFilter from '../../components/CategoryFilter.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import { getPublishedPosts } from '../../lib/posts';
+
+const posts = await getPublishedPosts();
+---
+<BaseLayout title="Articles" description="Technical articles and practical notes on backend engineering, cloud, and DevOps.">
+  <PageIntro
+    eyebrow="The notebook"
+    title="Articles & notes"
+    description="Practical walkthroughs, explanations, and useful references from my engineering journey."
+  />
+  <CategoryFilter />
+  <ArticleList posts={posts} />
+</BaseLayout>

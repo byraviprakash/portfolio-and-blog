@@ -1,0 +1,18 @@
+---
+import { services } from '../config/site';
+
+interface Props {
+  /** show the bullet points under each service (Services page) or keep it short (Home page) */
+  detailed?: boolean;
+}
+const { detailed = false } = Astro.props;
+---
+<div class="services-grid">
+  {services.map((service) => (
+    <article class="service-card">
+      <h3>{service.title}</h3>
+      <p>{service.description}</p>
+      {detailed && <ul>{service.points.map((point) => <li>{point}</li>)}</ul>}
+    </article>
+  ))}
+</div>

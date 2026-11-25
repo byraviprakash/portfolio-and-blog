@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import AvailabilityPanel from '../components/AvailabilityPanel.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { workProcess, workingPrinciples, freelanceMode } from '../config/site';
+
+// In portfolio mode (freelanceMode = false) this page is switched off and sends visitors home.
+if (!freelanceMode) return Astro.redirect('/');
+---
+<BaseLayout title="Services" description="Cloud-native .NET development, Docker and Kubernetes deployment on Google Cloud, CI/CD pipelines, and performance work for teams in Europe and the USA.">
+  <PageIntro
+    eyebrow="Services"
+    title="Cloud-native .NET, from code to production."
+    description="I am available to work with startups, small businesses, and engineering teams in Europe and the USA that need a dependable .NET engineer who also handles the cloud side: a new service on GCP, a CI/CD pipeline, a move to containers, or a system that needs care."
+  />
+
+  <p class="transparency-note">
+    A note on my background: my experience comes from full-time engineering roles, most recently
+    on a platform for S&amp;P Global Mobility through my employer. I am open to full-time,
+    contract, and freelance opportunities.
+  </p>
+
+  <section class="section-block">
+    <div class="section-heading"><div><p class="eyebrow">What I do</p><h2>Areas of work</h2></div></div>
+    <ServicesGrid detailed />
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading"><div><p class="eyebrow">Process</p><h2>How we would work together</h2></div></div>
+    <ol class="process-grid">
+      {workProcess.map((step, i) => (
+        <li>
+          <span class="process-number">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading"><div><p class="eyebrow">Working together</p><h2>Time zones &amp; communication</h2></div></div>
+    <AvailabilityPanel />
+    <ul class="principles-list">
+      {workingPrinciples.map((item) => <li>{item}</li>)}
+    </ul>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

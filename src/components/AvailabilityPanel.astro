@@ -1,0 +1,15 @@
+---
+import { siteConfig, availability } from '../config/site';
+---
+<div class="availability-panel">
+  <div class="availability-summary">
+    <span class="status-pill"><span class="eyebrow-dot"></span>{availability.status}</span>
+    <h3>Remote-first, across time zones</h3>
+    <p>Based in {siteConfig.location} · {siteConfig.timezone}. {availability.responseTime}</p>
+  </div>
+  <dl class="overlap-list">
+    {availability.overlap.map((item) => (
+      <div><dt>{item.region}</dt><dd>{item.detail}</dd></div>
+    ))}
+  </dl>
+</div>

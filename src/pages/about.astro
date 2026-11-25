@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { siteConfig, skillGroups, freelanceMode } from '../config/site';
+---
+<BaseLayout title="About" description={`Ravi Prakash, senior .NET engineer working on cloud and DevOps${freelanceMode ? ' available for remote work with teams in Europe and the USA' : ' based in New Delhi, India'}.`}>
+  <PageIntro
+    eyebrow="About"
+    title={`Hi, I'm ${siteConfig.name}.`}
+    description={`${siteConfig.role} with 7+ years of experience in C# and .NET. Based in ${siteConfig.location}${freelanceMode ? ', available for remote work with teams in Europe and the USA' : ''}.`}
+  />
+  <section class="content-panel prose">
+    <h2>Professional summary</h2>
+    <p>
+      I build backend systems with ASP.NET Core and look after how they are shipped and run in the
+      cloud: REST APIs and microservices, the data and messaging layers behind them, and the
+      containers, pipelines and Kubernetes workloads that take them to production. My focus is
+      software that stays fast, available, and easy to release as a product grows.
+    </p>
+    <p>
+      I currently work on a platform for S&amp;P Global Mobility (now Mobility Global, a
+      NYSE-listed automotive data and analytics company that was part of S&amp;P Global until 2026). I am part of the team that operates and optimizes a seven-microservice ASP.NET Core
+      platform on Google Cloud that processes more than three million records. The work covers data
+      modeling across MongoDB and Cloud SQL, event-driven messaging with Cloud Pub/Sub, database
+      indexing, throughput tuning, and proactive monitoring. On the delivery side, I build Docker
+      images, maintain GitHub Actions CI/CD pipelines that push to Artifact Registry, and
+      troubleshoot workloads on Google Kubernetes Engine across dev, stage and prod.
+    </p>
+    <p>
+      My foundation is backend engineering, and I am actively growing deeper into cloud
+      infrastructure and DevOps: Kubernetes, CI/CD design, Linux and automation. I write up what I
+      learn in my technical notes.
+    </p>
+    <h2>{freelanceMode ? 'What I bring to your team' : 'What I bring'}</h2>
+    <ul>
+      <li>Cloud-native services on Google Cloud (GKE, Pub/Sub, Cloud SQL, Cloud Storage), plus working knowledge of AWS.</li>
+      <li>Containers and delivery: Docker images, CI/CD with GitHub Actions and GitLab CI, and Artifact Registry.</li>
+      <li>Production experience with C#, ASP.NET Core, SQL Server, PostgreSQL, and MongoDB.</li>
+      <li>Microservice and event-driven design that holds up under heavy data loads.</li>
+      <li>Attention to performance, resilience, observability (OpenTelemetry), and maintainable code.</li>
+      <li>Experience delivering for a USA-based client as part of distributed teams, through my employers.</li>
+    </ul>
+    <h2>How I work</h2>
+    {freelanceMode ? (
+      <p>
+        I keep communication simple and written: clear scope up front, regular progress updates, and
+        honest flags when something is at risk. I work in your repository, follow your team's
+        conventions, and leave documentation behind so the system is easy to own after I hand it over.
+      </p>
+    ) : (
+      <p>
+        I keep communication clear and written, raise risks early, and follow my team's conventions.
+        I care about code that is tested, documented, and easy for the next engineer to own.
+      </p>
+    )}
+    <h2>Technical writing</h2>
+    <p>
+      I publish practical, hands-on notes on cloud platforms, Docker, Kubernetes, CI/CD, Linux and
+      .NET in the <a href="/blog/">articles</a> section, and keep my learning notes public on
+      <a href="https://github.com/byraviprakash/devops-notes" target="_blank" rel="noreferrer">GitHub</a>.
+    </p>
+  </section>
+  <section class="section-block about-skills">
+    <div class="section-heading"><div><p class="eyebrow">Technology</p><h2>Tools and skills</h2></div></div>
+    <div class="skills-grid">
+      {skillGroups.map((group) => (
+        <div class="skill-card"><h3>{group.title}</h3><div class="tag-list">{group.skills.map((skill) => <span>{skill}</span>)}</div></div>
+      ))}
+      <div class="skill-card"><h3>Working knowledge</h3><div class="tag-list"><span>React</span><span>Angular</span></div></div>
+    </div>
+  </section>
+  {freelanceMode && <CtaBand />}
+</BaseLayout>

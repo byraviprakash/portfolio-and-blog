@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { experience, education } from '../config/site';
+---
+<BaseLayout title="Experience" description="Professional experience of Ravi Prakash, senior .NET engineer working on cloud-native systems, Kubernetes and CI/CD.">
+  <section class="page-intro">
+    <p class="eyebrow">Career</p>
+    <h1>Experience</h1>
+    <p>7+ years of building systems with C# and .NET, most recently building, shipping and running a cloud-native microservice platform on Google Cloud for a USA-based client.</p>
+  </section>
+  <section class="timeline-section">
+    {experience.map((item) => (
+      <article class:list={["timeline-item", { "timeline-current": item.current }]}>
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="role-heading">
+            <div>
+              <p class="eyebrow role-label">{item.role}</p>
+              <h2>{item.company}</h2>
+              {item.client && <p class="client-line">Client: {item.client}{item.clientNote && ` · ${item.clientNote}`}</p>}
+            </div>
+            <span class="role-period">{item.period}</span>
+          </div>
+          {item.highlights.length > 0 && (
+            <ul>{item.highlights.map((highlight) => <li>{highlight}</li>)}</ul>
+          )}
+        </div>
+      </article>
+    ))}
+  </section>
+  <section class="section-block education-section">
+    <div class="section-heading"><div><p class="eyebrow">Education</p><h2>Academic background</h2></div></div>
+    <div class="education-grid">
+      {education.map((item) => (
+        <article class="education-card">
+          <h3>{item.degree}</h3>
+          <p>{item.institution}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

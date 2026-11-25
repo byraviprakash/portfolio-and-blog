@@ -1,0 +1,20 @@
+---
+import { getCategories, getCategoryUrl } from '../lib/posts';
+
+interface Props {
+  /** slug of the category being viewed; leave empty on the "All" page */
+  active?: string;
+}
+const { active } = Astro.props;
+const categories = await getCategories();
+---
+{categories.length > 1 && (
+  <nav class="filter-row" aria-label="Article categories">
+    <a href="/blog/" class:list={{ active: !active }}>All</a>
+    {categories.map((c) => (
+      <a href={getCategoryUrl(c.name)} class:list={{ active: active === c.slug }}>
+        {c.name} <span>{c.posts.length}</span>
+      </a>
+    ))}
+  </nav>
+)}

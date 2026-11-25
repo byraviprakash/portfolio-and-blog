@@ -1,0 +1,22 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = 'Hiring, or have a project in mind?',
+  text = 'Whether it is a full-time role or a cloud and .NET project, send me a short note. I reply within one business day.',
+} = Astro.props;
+---
+<section class="cta-band">
+  <div>
+    <h2>{title}</h2>
+    <p>{text}</p>
+  </div>
+  <div class="hero-actions">
+    <a class="button button-primary" href="/contact/">Start a conversation <span aria-hidden="true">→</span></a>
+    <a class="button button-secondary" href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+  </div>
+</section>

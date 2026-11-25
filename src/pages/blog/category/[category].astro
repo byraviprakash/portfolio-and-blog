@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageIntro from '../../../components/PageIntro.astro';
+import CategoryFilter from '../../../components/CategoryFilter.astro';
+import ArticleList from '../../../components/ArticleList.astro';
+import { getCategories, type Group } from '../../../lib/posts';
+
+// One page per category, generated automatically from the articles' "category" field.
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  return categories.map((group) => ({ params: { category: group.slug }, props: { group } }));
+}
+const { group } = Astro.props as { group: Group };
+---
+<BaseLayout title={`${group.name} articles`} description={`Articles about ${group.name}.`}>
+  <PageIntro eyebrow="Category" title={group.name} description={`${group.posts.length} article${group.posts.length === 1 ? '' : 's'} about ${group.name}.`} />
+  <CategoryFilter active={group.slug} />
+  <ArticleList posts={group.posts} />
+</BaseLayout>

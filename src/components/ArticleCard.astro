@@ -1,0 +1,21 @@
+---
+import { getPostUrl, getCategoryUrl, getReadingTime, type Post } from '../lib/posts';
+import { formatDate } from '../lib/format';
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+const { title, description, category, pubDate } = post.data;
+const href = getPostUrl(post);
+---
+<article class="article-card">
+  <div class="article-meta">
+    <a class="category" href={getCategoryUrl(category)}>{category}</a>
+    <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+    <span>{getReadingTime(post)} min read</span>
+  </div>
+  <h3><a href={href}>{title}</a></h3>
+  <p>{description}</p>
+  <a class="read-link" href={href}>Read article <span aria-hidden="true">→</span></a>
+</article>

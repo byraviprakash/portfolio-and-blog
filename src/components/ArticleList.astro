@@ -1,0 +1,22 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import type { Post } from '../lib/posts';
+
+interface Props {
+  posts: Post[];
+  /** "grid" = 3 columns (home page), "list" = 2 columns (article pages) */
+  layout?: 'grid' | 'list';
+  emptyTitle?: string;
+}
+const { posts, layout = 'list', emptyTitle = 'No articles published yet.' } = Astro.props;
+---
+{posts.length > 0 ? (
+  <div class:list={['article-grid', { 'article-grid-list': layout === 'list' }]}>
+    {posts.map((post) => <ArticleCard post={post} />)}
+  </div>
+) : (
+  <div class="empty-state">
+    <strong>{emptyTitle}</strong>
+    <p>Run <code>npm run new -- "Article title"</code> or add a Markdown file to <code>src/content/blog/</code>.</p>
+  </div>
+)}
