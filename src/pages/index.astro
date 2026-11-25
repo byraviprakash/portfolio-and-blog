@@ -11,7 +11,8 @@ const posts = await getLatestPosts(3);
 const currentRole = experience[0];
 ---
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
-  <section class="hero hero-profile">
+  <section class="hero hero-profile hero-with-photo">
+    <div class="hero-main">
     <p class="eyebrow"><span class="eyebrow-dot"></span> {freelanceMode ? siteConfig.remote : siteConfig.location}</p>
     {freelanceMode ? (
       <h1>Cloud-native .NET engineer<br /><span>open to full-time and remote roles.</span></h1>
@@ -19,8 +20,9 @@ const currentRole = experience[0];
       <h1>Cloud-native .NET engineer<br /><span>from code to Kubernetes.</span></h1>
     )}
     <p class="hero-copy">
-      I build ASP.NET Core microservices and take them all the way to production: containerized with
-      Docker, shipped through CI/CD pipelines, and running on Kubernetes (GKE) on Google Cloud.
+      I bring hands-on experience in both development and DevOps. I build ASP.NET Core
+      microservices, and I also take them all the way to production: containerized with Docker,
+      shipped through CI/CD pipelines, and running on Kubernetes (GKE) on Google Cloud.
       {freelanceMode
         ? ' I am open to a full-time role with a company in India or abroad, and to selected remote projects with teams in Europe and the USA.'
         : ' I am open to full-time senior engineering roles.'}
@@ -41,10 +43,15 @@ const currentRole = experience[0];
     <div class="topic-row" aria-label="Core technologies">
       <span>Google Cloud</span><span>Kubernetes (GKE)</span><span>Docker</span><span>CI/CD</span><span>GitHub Actions</span><span>C# / .NET</span><span>ASP.NET Core</span><span>Microservices</span>
     </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/images/ravi-prakash.jpg" alt="Ravi Prakash" width="800" height="800" loading="eager" />
+    </figure>
   </section>
 
   <section class="stats-row" aria-label="Professional highlights">
     <div class="stat-item"><strong>7+ years</strong><span>Building .NET systems, now cloud-native on GCP</span></div>
+    <div class="stat-item"><strong>Dev + DevOps</strong><span>I write the code and ship it: Docker, CI/CD, GKE</span></div>
     <div class="stat-item"><strong>3M+</strong><span>Records processed by the platform I work on</span></div>
     <div class="stat-item"><strong>USA client</strong><span>Currently delivering for S&amp;P Global Mobility</span></div>
   </section>

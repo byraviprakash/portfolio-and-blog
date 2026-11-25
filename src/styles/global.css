@@ -111,7 +111,7 @@ h1, h2, h3 { font-family: Manrope, 'DM Sans', sans-serif; color: var(--ink); let
 .hero-profile { max-width: 900px; padding-top: 82px; }
 .hero-profile h1 { font-size: clamp(42px, 6.3vw, 66px); }
 .hero-profile h1 span { color: #64748b; }
-.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 25px 0 48px; border-top: 1px solid var(--line); }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 25px 0 48px; border-top: 1px solid var(--line); }
 .stat-item { display: flex; flex-direction: column; gap: 5px; }
 .stat-item strong { color: var(--ink); font-family: Manrope, sans-serif; font-size: 27px; letter-spacing: -.04em; }
 .stat-item span { color: var(--muted); font-size: 12px; }
@@ -210,3 +210,16 @@ a.category { display: inline-block; }
 
 /* "What I'm open to" cards on the Home page */
 .open-to-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+
+/* Home hero with profile photo */
+.hero-with-photo { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 56px; align-items: center; padding-top: 64px; }
+.hero-with-photo h1 { font-size: clamp(32px, 3.5vw, 46px); line-height: 1.12; text-wrap: balance; }
+.hero-photo { margin: 0; }
+.hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 30px rgba(15, 23, 42, .10); }
+@media (max-width: 1000px) {
+  .hero-with-photo { grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; }
+}
+@media (max-width: 800px) {
+  .hero-with-photo { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+  .hero-photo { order: -1; width: 200px; }
+}
