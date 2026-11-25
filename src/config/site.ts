@@ -47,7 +47,7 @@ export const navigation = [
 export const openTo = [
   {
     title: 'Full-time roles in India',
-    description: 'Senior .NET or cloud-focused engineering roles as a full-time employee, on-site or hybrid in Delhi NCR, or remote within India.',
+    description: 'Senior .NET or cloud-focused engineering roles as a full-time employee, either remote or on-site (hybrid also works), anywhere in India.',
   },
   {
     title: 'Remote roles with global teams',
