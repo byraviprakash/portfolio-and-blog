@@ -10,9 +10,15 @@ export const siteConfig = {
   name: 'Ravi Prakash',
   role: 'Senior .NET Engineer · Cloud & DevOps',
   headline: 'Cloud-native .NET · GCP · Kubernetes · CI/CD',
+  /** Browser-tab / Google title for the home page. Keep under ~60 characters. */
+  seoTitle: 'Ravi Prakash | Senior ASP.NET Core Developer · Docker, Kubernetes',
+  jobTitle: 'Senior ASP.NET Core Developer',
+  image: '/images/ravi-prakash.jpg',
+  /** Topics used in structured data (schema.org knowsAbout) so Google understands the expertise. */
+  knowsAbout: ['ASP.NET Core', '.NET', 'C#', 'Web API', 'Microservices', 'Docker', 'Kubernetes', 'Google Kubernetes Engine (GKE)', 'Google Cloud Platform', 'AWS', 'CI/CD', 'GitHub Actions', 'GitLab CI', 'DevOps', 'Entity Framework Core', 'SQL Server', 'PostgreSQL', 'MongoDB', 'Redis', 'Cloud Pub/Sub', 'Event-driven architecture'],
   description: freelanceMode
-    ? 'Senior .NET engineer with 7+ years of experience building cloud-native ASP.NET Core microservices and shipping them with Docker, Kubernetes (GKE) and CI/CD on Google Cloud. Available for remote contract and freelance work with teams in Europe and the USA.'
-    : 'Senior .NET engineer with 7+ years of experience building cloud-native ASP.NET Core microservices and shipping them with Docker, Kubernetes (GKE) and CI/CD on Google Cloud. Portfolio and technical notes on cloud and DevOps.',
+    ? 'Senior ASP.NET Core developer (7+ years) building .NET microservices with Docker, Kubernetes (GKE), CI/CD and Google Cloud. Open to full-time and remote roles.'
+    : 'Senior ASP.NET Core developer (7+ years) building .NET microservices with Docker, Kubernetes (GKE), CI/CD and Google Cloud. Open to full-time roles.',
   url: 'https://raviprakash.dev',
   email: 'raviprakash.mailbox@gmail.com',
   // phone: '+91-8860711226',

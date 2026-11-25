@@ -14,7 +14,22 @@ const { title, description, category, pubDate, updatedDate, tags } = post.data;
 const { Content } = await render(post);
 const { newer, older } = await getAdjacentPosts(post);
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  publishedTime={pubDate}
+  schema={[{
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    datePublished: pubDate.toISOString(),
+    dateModified: (updatedDate ?? pubDate).toISOString(),
+    author: { '@id': new URL('/#person', Astro.site).href },
+    mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+    keywords: tags.join(', '),
+  }]}
+>
   <article class="prose-wrap">
     <a class="back-link" href="/blog/">← All articles</a>
     <header class="article-header">

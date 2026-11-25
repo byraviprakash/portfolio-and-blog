@@ -213,7 +213,7 @@ a.category { display: inline-block; }
 
 /* Home hero with profile photo */
 .hero-with-photo { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 56px; align-items: center; padding-top: 64px; }
-.hero-with-photo h1 { font-size: clamp(32px, 3.5vw, 46px); line-height: 1.12; text-wrap: balance; }
+.hero-with-photo h1 { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.15; }
 .hero-photo { margin: 0; }
 .hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 30px rgba(15, 23, 42, .10); }
 @media (max-width: 1000px) {
