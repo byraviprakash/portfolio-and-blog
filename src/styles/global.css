@@ -253,7 +253,7 @@ a.category { display: inline-block; }
   .brand-icon { width: 48px; height: 48px; }
   .brand-name { font-size: 20px; }
   .brand-by { font-size: 11px; }
-  .brand-tag { display: none; }
+  .brand-tag { margin-top: 3px; padding-top: 3px; font-size: 8px; letter-spacing: .05em; white-space: nowrap; }
 }
 
 /* Hide the grey scrollbar under the mobile menu (it still scrolls sideways) */
