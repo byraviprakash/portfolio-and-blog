@@ -212,14 +212,20 @@ a.category { display: inline-block; }
 .open-to-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 
 /* Home hero with profile photo */
-.hero-with-photo { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 56px; align-items: center; padding-top: 64px; }
+.hero-with-photo { max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; align-items: center; padding-top: 64px; }
 .hero-with-photo h1 { font-size: clamp(30px, 3.2vw, 42px); line-height: 1.15; }
+.hero-with-photo h1 .nowrap { color: inherit; white-space: nowrap; }
 .hero-photo { margin: 0; }
+.hero-photo picture { display: block; }
 .hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 30px rgba(15, 23, 42, .10); }
 @media (max-width: 1000px) {
   .hero-with-photo { grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; }
 }
 @media (max-width: 800px) {
-  .hero-with-photo { grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
-  .hero-photo { order: -1; width: 200px; }
+  .hero-with-photo { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
+  .hero-photo { order: -1; width: 100%; }
+  .hero-photo img { aspect-ratio: 4 / 3; object-position: 55% 30%; border-radius: 14px; }
+  /* first line ("Senior ASP.NET Core Developer") is sized to fill the full width of the phone */
+  .hero-with-photo .hero-main { container-type: inline-size; }
+  .hero-with-photo h1 { font-size: min(calc(100cqi / 14.4), 34px); }
 }
