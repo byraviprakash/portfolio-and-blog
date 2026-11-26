@@ -247,13 +247,13 @@ a.category { display: inline-block; }
 .brand-words { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name { font-family: Manrope, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -.02em; background: linear-gradient(180deg, #f6dd96 0%, #d9b25c 55%, #b8862f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .brand-by { margin-top: 3px; color: #dbe3ec; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.brand-tag { margin-top: 5px; padding-top: 4px; border-top: 1px solid rgba(217, 178, 92, .55); color: #d9b25c; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.brand-tag { margin-top: 5px; padding-top: 4px; border-top: 1px solid rgba(217, 178, 92, .55); color: #d9b25c; font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 @media (max-width: 760px) {
   .site-header { padding: 10px 0 12px; gap: 6px; }
   .brand-icon { width: 48px; height: 48px; }
   .brand-name { font-size: 20px; }
   .brand-by { font-size: 11px; }
-  .brand-tag { margin-top: 3px; padding-top: 3px; font-size: 10px; letter-spacing: .12em; white-space: nowrap; }
+  .brand-tag { margin-top: 3px; padding-top: 3px; font-size: 9px; letter-spacing: .12em; white-space: nowrap; }
 }
 
 /* Hide the grey scrollbar under the mobile menu (it still scrolls sideways) */
