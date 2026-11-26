@@ -77,9 +77,13 @@ const jsonLd = {
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="brand" href="/" aria-label={`${siteConfig.name} home`}>
-          <span class="brand-mark">RP</span>
-          <span>{siteConfig.name}</span>
+        <a class="brand" href="/" aria-label="CodeToCloud by Ravi Prakash, home">
+          <img class="brand-icon" src="/images/logo-icon.png" alt="" width="200" height="200" />
+          <span class="brand-words">
+            <span class="brand-name">CodeToCloud</span>
+            <span class="brand-by">by Ravi Prakash</span>
+            <span class="brand-tag">Programming Notes | Cloud Deployment</span>
+          </span>
         </a>
         <nav aria-label="Main navigation">
           {navigation.map((item) => (
