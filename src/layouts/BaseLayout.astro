@@ -85,7 +85,10 @@ const jsonLd = {
             <span class="brand-tag">Programming Notes | Cloud Deployment</span>
           </span>
         </a>
-        <nav aria-label="Main navigation">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav" aria-label="Main navigation">
           {navigation.map((item) => (
             <a href={item.href} class:list={{ active: Astro.url.pathname === item.href || (item.href === '/blog/' && Astro.url.pathname.startsWith('/blog/')) }}>
               {item.label}
@@ -101,5 +104,19 @@ const jsonLd = {
         <span>{siteConfig.role} · {siteConfig.remote} · <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></span>
       </footer>
     </div>
+    <script>
+      // Mobile hamburger menu: open/close the navigation
+      const header = document.querySelector('.site-header');
+      const toggle = header?.querySelector('.menu-toggle');
+      const setOpen = (open) => {
+        header?.classList.toggle('menu-open', open);
+        toggle?.setAttribute('aria-expanded', String(open));
+        toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      toggle?.addEventListener('click', () => setOpen(!header?.classList.contains('menu-open')));
+      header?.querySelectorAll('nav a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+      window.matchMedia('(min-width: 761px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+    </script>
   </body>
 </html>
