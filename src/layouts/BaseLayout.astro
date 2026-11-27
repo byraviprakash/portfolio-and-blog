@@ -1,5 +1,5 @@
 ---
-import { siteConfig, navigation } from '../config/site';
+import { siteConfig, navigation, showEmail, showPhone } from '../config/site';
 import '../styles/global.css';
 
 interface Props {
@@ -28,7 +28,8 @@ const jsonLd = {
       description: siteConfig.description,
       url: siteUrl.href,
       image: imageUrl.href,
-      email: `mailto:${siteConfig.email}`,
+      ...(showEmail ? { email: `mailto:${siteConfig.email}` } : {}),
+      ...(showPhone ? { telephone: siteConfig.phone } : {}),
       address: { '@type': 'PostalAddress', addressLocality: 'New Delhi', addressCountry: 'IN' },
       knowsAbout: siteConfig.knowsAbout,
       sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
@@ -77,10 +78,10 @@ const jsonLd = {
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="brand" href="/" aria-label="CodeToCloudOps by Ravi Prakash, home">
+        <a class="brand" href="/" aria-label="Scale from Scratch by Ravi Prakash, home">
           <img class="brand-icon" src="/images/logo-icon.png" alt="" width="200" height="200" />
           <span class="brand-words">
-            <span class="brand-name">CodeToCloudOps</span>
+            <span class="brand-name">Scale<span class="brand-from">from</span>Scratch</span>
             <span class="brand-by">by Ravi Prakash</span>
             <span class="brand-tag">Build &amp; Ship</span>
           </span>
@@ -101,7 +102,7 @@ const jsonLd = {
       </main>
       <footer class="site-footer">
         <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-        <span>{siteConfig.role} · {siteConfig.remote} · <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></span>
+        <span>{siteConfig.role} · {siteConfig.remote}{showEmail && <> · <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></>}</span>
       </footer>
     </div>
     <script>

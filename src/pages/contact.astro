@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import AvailabilityPanel from '../components/AvailabilityPanel.astro';
-import { siteConfig, freelanceMode } from '../config/site';
+import { siteConfig, freelanceMode, showEmail, showPhone } from '../config/site';
 
 const subject = encodeURIComponent(freelanceMode ? 'Job opportunity / project enquiry' : 'Job opportunity');
 ---
@@ -22,6 +22,7 @@ const subject = encodeURIComponent(freelanceMode ? 'Job opportunity / project en
   )}
 
   <section class="contact-panel">
+    {showEmail && (
     <div class:list={{ 'contact-primary': freelanceMode }}>
       <span class="contact-icon">✉</span>
       <h2>Email</h2>
@@ -39,6 +40,7 @@ const subject = encodeURIComponent(freelanceMode ? 'Job opportunity / project en
       )}
       <a class="button button-primary" href={`mailto:${siteConfig.email}?subject=${subject}`}>{siteConfig.email}</a>
     </div>
+    )}
     <div>
       <span class="contact-icon">↗</span>
       <h2>LinkedIn</h2>
@@ -51,12 +53,14 @@ const subject = encodeURIComponent(freelanceMode ? 'Job opportunity / project en
       <p>Code samples and technical notes.</p>
       <a class="text-link" href={siteConfig.social.github} target="_blank" rel="noreferrer">View GitHub profile <span aria-hidden="true">↗</span></a>
     </div>
+    {showPhone && (
     <div>
       <span class="contact-icon">☎</span>
       <h2>Phone</h2>
       <p>Available for professional contact.</p>
       <a class="text-link" href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>
     </div>
+    )}
   </section>
 
   {freelanceMode && (

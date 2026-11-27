@@ -6,6 +6,21 @@
  */
 export const freelanceMode = true;
 
+/**
+ * CONTACT DETAILS SWITCH
+ * true  = shown on the website (Contact page, footer and Google structured data)
+ * false = hidden everywhere on the website
+ */
+export const showEmail = true;
+export const showPhone = false;
+
+/**
+ * PROFILE PHOTO SWITCH
+ * true  = photo shown on the Home page and used when the site is shared (LinkedIn, WhatsApp)
+ * false = photo hidden; the Home page text uses the full width and the logo is used for sharing
+ */
+export const showPhoto = false;
+
 export const siteConfig = {
   name: 'Ravi Prakash',
   role: 'Senior .NET Engineer · Cloud & DevOps',
@@ -13,7 +28,7 @@ export const siteConfig = {
   /** Browser-tab / Google title for the home page. Keep under ~60 characters. */
   seoTitle: 'Ravi Prakash | Senior ASP.NET Core Developer · Docker, Kubernetes',
   jobTitle: 'Senior ASP.NET Core Developer',
-  image: '/images/ravi-prakash.jpg',
+  image: showPhoto ? '/images/ravi-prakash.jpg' : '/images/logo-icon.png',
   /** Topics used in structured data (schema.org knowsAbout) so Google understands the expertise. */
   knowsAbout: ['ASP.NET Core', '.NET', 'C#', 'Web API', 'Microservices', 'Docker', 'Kubernetes', 'Google Kubernetes Engine (GKE)', 'Google Cloud Platform', 'AWS', 'CI/CD', 'GitHub Actions', 'GitLab CI', 'DevOps', 'Entity Framework Core', 'SQL Server', 'PostgreSQL', 'MongoDB', 'Redis', 'Cloud Pub/Sub', 'Event-driven architecture'],
   description: freelanceMode
@@ -21,7 +36,7 @@ export const siteConfig = {
     : 'Senior ASP.NET Core developer (7+ years) building .NET microservices with Docker, Kubernetes (GKE), CI/CD and Google Cloud. Open to full-time roles.',
   url: 'https://raviprakash.dev',
   email: 'raviprakash.mailbox@gmail.com',
-  // phone: '+91-8860711226',
+  phone: '+91-8860711226', // only shown when showPhone = true
   location: 'New Delhi, India',
   remote: freelanceMode ? 'Open to full-time roles and remote work' : 'Based in New Delhi, India · Open to full-time roles',
   timezone: 'IST (UTC+5:30)',

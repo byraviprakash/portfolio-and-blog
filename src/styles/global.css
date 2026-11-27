@@ -227,7 +227,7 @@ a.category { display: inline-block; }
   .hero-photo img { aspect-ratio: 4 / 3; object-position: 55% 30%; border-radius: 14px; }
   /* first line ("Senior ASP.NET Core Developer") is sized to fill the full width of the phone */
   .hero-with-photo .hero-main { container-type: inline-size; }
-  .hero-with-photo h1 { font-size: min(calc(100cqi / 14.4), 34px); }
+  .hero-with-photo h1 { font-size: clamp(26px, 8vw, 32px); }
 }
 
 /* Article tables and quotes */
@@ -273,3 +273,10 @@ a.category { display: inline-block; }
   .site-header.menu-open nav { display: flex; }
   .site-header nav a { padding: 13px 4px; border-top: 1px solid rgba(255, 255, 255, .08); font-size: 15px; }
 }
+
+/* "Scale from scratch" note under the home intro */
+.hero-note { max-width: 620px; margin: 18px 0 0; padding: 4px 0 4px 14px; border-left: 3px solid #d9b25c; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.6; }
+@media (max-width: 760px) { .hero-note { font-size: 14px; } }
+
+/* Brand name: "Scale from Scratch" - one typeface, lighter "from" for contrast */
+.brand-name .brand-from { margin: 0 .24em; font-weight: 500; -webkit-text-fill-color: #cbd5e1; color: #cbd5e1; }

@@ -5,24 +5,25 @@ import ServicesGrid from '../components/ServicesGrid.astro';
 import AvailabilityPanel from '../components/AvailabilityPanel.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { getLatestPosts } from '../lib/posts';
-import { siteConfig, skillGroups, experience, workingPrinciples, openTo, freelanceMode } from '../config/site';
+import { siteConfig, skillGroups, experience, workingPrinciples, openTo, freelanceMode, showPhoto } from '../config/site';
 
 const posts = await getLatestPosts(3);
 const currentRole = experience[0];
 ---
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
-  <section class="hero hero-profile hero-with-photo">
+  <section class:list={["hero", "hero-profile", { "hero-with-photo": showPhoto }]}>
     <div class="hero-main">
     <p class="eyebrow"><span class="eyebrow-dot"></span> {freelanceMode ? siteConfig.remote : siteConfig.location}</p>
-    <h1><span class="nowrap">Senior ASP.NET Core Developer</span><br /><span>with Docker, Kubernetes<br />&amp; Google Cloud.</span></h1>
+    <h1>Full-Cycle Software Engineer<br /><span>Building Modern Software, Cloud &amp; DevOps Solutions.</span></h1>
     <p class="hero-copy">
-      I am a .NET developer with hands-on experience in both development and DevOps. I build
-      ASP.NET Core Web APIs and microservices in C#, and I also take them all the way to production: containerized with Docker,
-      shipped through CI/CD pipelines, and running on Kubernetes (GKE) on Google Cloud.
+      I build reliable web applications and APIs, and take them all the way to production:
+      containerized, deployed through automated CI/CD pipelines, and running on the cloud.
+      My main stack is ASP.NET Core, Docker, Kubernetes and Google Cloud.
       {freelanceMode
         ? ' I am open to a full-time role with a company in India or abroad, and to selected remote projects with teams in Europe and the USA.'
         : ' I am open to full-time senior engineering roles.'}
     </p>
+    <p class="hero-note">I start simple and build for the users you have today, with a clean path to scale when you grow.</p>
     <div class="hero-actions">
       {freelanceMode ? (
         <>
@@ -40,12 +41,14 @@ const currentRole = experience[0];
       <span>Google Cloud</span><span>Kubernetes (GKE)</span><span>Docker</span><span>CI/CD</span><span>GitHub Actions</span><span>C# / .NET</span><span>ASP.NET Core</span><span>Microservices</span>
     </div>
     </div>
+    {showPhoto && (
     <figure class="hero-photo">
       <picture>
         <source media="(max-width: 800px)" srcset="/images/ravi-prakash-wide.jpg" width="1200" height="900" />
         <img src="/images/ravi-prakash.jpg" alt="Ravi Prakash, Senior ASP.NET Core Developer" width="800" height="800" loading="eager" fetchpriority="high" />
       </picture>
     </figure>
+    )}
   </section>
 
   <section class="stats-row" aria-label="Professional highlights">
